@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Assignment Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-glow"></div>
+  
+  <div class="app-wrapper">
+    <header>
+      <h1>Assignment <span class="glow-text">Tracker</span></h1>
+      <p class="date-now" id="currentDate"></p>
+    </header>
+
+    <div class="input-card">
+      <div class="input-group">
+        <input type="text" id="title" placeholder="اسم التكليف">
+        <input type="text" id="subject" placeholder="المادة">
+        <input type="date" id="deadline">
+      </div>
+      <button class="add-btn" onclick="addTask()">+ إضافة للمخطط</button>
+    </div>
+
+    <div id="tasks" class="tasks-grid"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+:root {
+  --bg-dark: #0f172a;
+  --card-dark: #1e293b;
+  --accent-cyan: #22d3ee;
+  --accent-purple: #c084fc; 
+  --urgent: #f87171;
+  --warning: #fbbf24;
+  --safe: #34d399;
+  --text-white: #f1f5f9;
+}
+
+* { box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.bg-glow {
+  position: fixed;
+  top: 10%; left: 20%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(60, 208, 231, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
+  z-index: -1; filter: blur(60px);
+}
+
+.app-wrapper { width: 95%; max-width: 1000px; padding: 40px 0; }
+
+header { text-align: center; margin-bottom: 30px; }
+.glow-text { color: var(--accent-cyan); text-shadow: 0 0 15px rgba(34, 211, 238, 0.4); }
+.date-now { color: #64748b; font-size: 0.9rem; }
+
+.input-card {
+  background: var(--card-dark);
+  padding: 25px; border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  margin-bottom: 40px;
+}
+
+.input-group { display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; }
+
+input {
+  flex: 1; min-width: 200px;
+  background: #111a2e; border: 1px solid #334155;
+  padding: 12px; border-radius: 10px; color: white; outline: none;
+}
+
+input:focus { border-color: var(--accent-cyan); }
+
+.add-btn {
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+  border: none; padding: 14px; border-radius: 10px;
+  color: #0f172a; font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+
+.add-btn:hover { transform: scale(1.01); filter: brightness(1.2); }
+
+.tasks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+
+.card {
+  background: var(--card-dark); padding: 20px; border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: 0.3s; position: relative;
+}
+
+.card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.1); }
+
+/* ألوان الديدلاين */
+.card.red { border-right: 5px solid var(--urgent); }
+.card.orange { border-right: 5px solid var(--warning); }
+.card.green { border-right: 5px solid var(--safe); }
+
+.card h3 { margin: 0; font-size: 1.2rem; }
+.card p { color: #94a3b8; font-size: 0.85rem; margin: 5px 0; }
+
+.days-badge {
+  display: block; margin-top: 10px; font-weight: bold; font-size: 0.9rem;
+}
+
+.red .days-badge { color: var(--urgent); }
+.orange .days-badge { color: var(--warning); }
+.green .days-badge { color: var(--safe); }
+
+.card-btns { margin-top: 15px; display: flex; gap: 8px; }
+
+.card-btns button {
+  flex: 1; padding: 8px; border-radius: 6px; border: 1px solid #334155;
+  background: transparent; color: white; cursor: pointer; transition: 0.2s;
+}
+
+.done-btn:hover { background: rgba(52, 211, 153, 0.1); border-color: var(--safe); }
+.del-btn:hover { background: rgba(248, 113, 113, 0.1); border-color: var(--urgent); }
+
+.completed { opacity: 0.3; filter: grayscale(1); text-decoration: line-through; }
